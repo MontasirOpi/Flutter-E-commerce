@@ -1,3 +1,4 @@
+import 'package:ecommerce/features/auth/ui/screens/otp_verification_screen.dart';
 import 'package:ecommerce/features/auth/ui/widgets/app_logo_widget.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -57,6 +58,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 ElevatedButton(
                   onPressed: () {
                     // if (_fromKey.currentState!.validate()) {}
+                    Navigator.pushNamed(context, OtpVerificationScreen.name);
                   },
                   child: Text('Next'),
                 ),
