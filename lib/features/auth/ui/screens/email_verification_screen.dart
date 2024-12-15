@@ -21,7 +21,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(24),
+          padding: const EdgeInsets.all(24),
           child: Form(
             key: _fromKey,
             child: Column(
@@ -60,7 +60,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                     // if (_fromKey.currentState!.validate()) {}
                     Navigator.pushNamed(context, OtpVerificationScreen.name);
                   },
-                  child: Text('Next'),
+                  child: const Text('Next'),
                 ),
               ],
             ),

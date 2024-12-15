@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:ecommerce/app/app_colors.dart';
 import 'package:ecommerce/app/app_constants.dart';
+import 'package:ecommerce/features/auth/ui/screens/complete_profile_screen.dart';
 import 'package:ecommerce/features/auth/ui/widgets/app_logo_widget.dart';
 
 import 'package:flutter/material.dart';
@@ -84,6 +85,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                 ElevatedButton(
                   onPressed: () {
                     // if (_fromKey.currentState!.validate()) {}
+                    Navigator.pushNamed(context, CompleteProfileScreen.name);
                   },
                   child: const Text('Next'),
                 ),

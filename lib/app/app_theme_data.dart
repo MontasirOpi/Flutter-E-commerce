@@ -47,7 +47,7 @@ class AppThemeData {
                   fontWeight: FontWeight.w400,
                   fontSize: 16,
                 ),
-                padding: EdgeInsets.symmetric(vertical: 12),
+                padding: const EdgeInsets.symmetric(vertical: 12),
               ),
       ),
       textButtonTheme: TextButtonThemeData(
