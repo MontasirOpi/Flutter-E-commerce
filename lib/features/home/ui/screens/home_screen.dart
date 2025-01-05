@@ -1,7 +1,6 @@
-import 'package:ecommerce/app/app_colors.dart';
 import 'package:ecommerce/app/assets_path.dart';
 import 'package:ecommerce/features/home/ui/widgets/app_bar_icon_button.dart';
-import 'package:ecommerce/features/home/ui/widgets/category_item_widget.dart';
+import 'package:ecommerce/features/common/ui/widgets/category_item_widget.dart';
 import 'package:ecommerce/features/home/ui/widgets/home_carousel_slider.dart';
 import 'package:ecommerce/features/home/ui/widgets/home_section_holder.dart';
 import 'package:ecommerce/features/home/ui/widgets/product_item_widget.dart';
@@ -60,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: _getProductList(),
                 ),
               ),
-               const SizedBox(height: 16),
+              const SizedBox(height: 16),
               HomeSectionHeader(
                 title: 'Specil',
                 onTap: () {},
@@ -72,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: _getProductList(),
                 ),
               ),
-               const SizedBox(height: 16),
+              const SizedBox(height: 16),
               HomeSectionHeader(
                 title: 'New',
                 onTap: () {},
@@ -84,7 +83,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: _getProductList(),
                 ),
               ),
-              
             ],
           ),
         ),
@@ -102,7 +100,8 @@ class _HomeScreenState extends State<HomeScreen> {
     }
     return categoryList;
   }
-   List<Widget> _getProductList() {
+
+  List<Widget> _getProductList() {
     List<Widget> productList = [];
     for (int i = 0; i < 10; i++) {
       productList.add(Padding(
@@ -135,4 +134,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
