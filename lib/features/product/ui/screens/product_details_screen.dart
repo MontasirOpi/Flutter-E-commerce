@@ -1,7 +1,7 @@
 import 'package:ecommerce/app/app_colors.dart';
 import 'package:ecommerce/features/product/ui/widgets/color_picker_widget.dart';
 import 'package:ecommerce/features/product/ui/widgets/product_image_carousel_slider.dart';
-import 'package:ecommerce/features/product/ui/widgets/product_quantity_inc_dec_button.dart';
+import 'package:ecommerce/features/common/ui/widgets/product_quantity_inc_dec_button.dart';
 import 'package:ecommerce/features/product/ui/widgets/size_picker_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,7 @@ class ProductDetailsScreen extends StatefulWidget {
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    final textheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Product details'),
@@ -42,7 +42,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                 children: [
                                   Text(
                                     'Nike shoe A2ERF New year special deal ',
-                                    style: textheme.titleMedium,
+                                    style: textTheme.titleMedium,
                                   ),
                                   Row(
                                     children: [
@@ -93,21 +93,21 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           ],
                         ),
                         const SizedBox(height: 16),
-                        Text('Color', style: textheme.titleMedium),
+                        Text('Color', style: textTheme.titleMedium),
                         const SizedBox(height: 8),
                         ColorPickerWidget(
                           colors: const ['Red', 'Green', 'Yellow', 'Pink'],
                           onColorSelected: (String selectedColor) {},
                         ),
                         const SizedBox(height: 16),
-                        Text('Size', style: textheme.titleMedium),
+                        Text('Size', style: textTheme.titleMedium),
                         const SizedBox(height: 8),
                         SizePickerWidget(
                           sizes: const ['S', 'M', 'L', 'XL', 'XXL'],
                           onSizeSelected: (String selectedSize) {},
                         ),
                         const SizedBox(height: 16),
-                        Text('Description', style: textheme.titleMedium),
+                        Text('Description', style: textTheme.titleMedium),
                         const SizedBox(height: 8),
                         const Text(
                           '''Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ''',
@@ -123,13 +123,13 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               ),
             ),
           ),
-          _buildPriceAndAddToCartSection(textheme),
+          _buildPriceAndAddToCartSection(textTheme),
         ],
       ),
     );
   }
 
-  Widget _buildPriceAndAddToCartSection(TextTheme textheme) {
+  Widget _buildPriceAndAddToCartSection(TextTheme textTheme) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(color: AppColors.themeColor.withOpacity(0.15)),
@@ -140,7 +140,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             children: [
               Text(
                 'Price',
-                style: textheme.titleSmall,
+                style: textTheme.titleSmall,
               ),
               const Text(
                 '\$100',
