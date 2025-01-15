@@ -1,7 +1,12 @@
+import 'package:ecommerce/features/auth/ui/controllers/email_veiffication_controller.dart';
 import 'package:ecommerce/features/auth/ui/screens/otp_verification_screen.dart';
+
 import 'package:ecommerce/features/auth/ui/widgets/app_logo_widget.dart';
+import 'package:ecommerce/features/common/ui/widgets/snack_bar_message.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class EmailVerificationScreen extends StatefulWidget {
   const EmailVerificationScreen({super.key});
@@ -16,6 +21,8 @@ class EmailVerificationScreen extends StatefulWidget {
 class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   final TextEditingController _emailTEController = TextEditingController();
   final GlobalKey<FormState> _fromKey = GlobalKey<FormState>();
+  final EmailVeifficationController _emailVeifficationController =
+      Get.find<EmailVeifficationController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,18 +62,37 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                       return null;
                     }),
                 const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    // if (_fromKey.currentState!.validate()) {}
-                    Navigator.pushNamed(context, OtpVerificationScreen.name);
-                  },
-                  child: const Text('Next'),
-                ),
+                GetBuilder<EmailVeifficationController>(builder: (controller) {
+                  if (controller.inProgress) {
+                    return const CircularProgressIndicator();
+                  }
+                  return ElevatedButton(
+                    onPressed: _onTabNextButton,
+                    child: const Text('Next'),
+                  );
+                }),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void _onTabNextButton() async {
+    if (_fromKey.currentState!.validate()) {
+      bool isSuccess = await _emailVeifficationController
+          .verifyEmail(_emailTEController.text.trim());
+      if (isSuccess) {
+        if (mounted) {
+          Navigator.pushNamed(context, OtpVerificationScreen.name);
+        }
+      } else {
+        if (mounted) {
+          showSnackBarmessage(
+              context, _emailVeifficationController.errorMessage!);
+        }
+      }
+    }
   }
 }
